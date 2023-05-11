@@ -250,6 +250,21 @@ const config = {
       ],
     },
   ],
+  async rewrites() {
+    const statsBaseUrl = process.env.STATS_BASE_URL;
+
+    return [
+      // public urls for stats:
+      statsBaseUrl && {
+        source: "/stats/js/script.js",
+        destination: `${statsBaseUrl}/js/script.js`,
+      },
+      statsBaseUrl && {
+        source: "/stats/api/event",
+        destination: `${statsBaseUrl}/api/event`,
+      },
+    ].filter(Boolean);
+  },
   webpack: (config, options) => {
     // Add a custom loader for videos
     config.module.rules.push({

@@ -37,6 +37,11 @@ export const serverSchema = z.object({
   FILE_STORAGE_REGION: z.string(),
   FILE_STORAGE_SECRET: z.string(),
   FILE_STORAGE_BUCKET: z.string(),
+  STATS_BASE_URL: z
+    .string()
+    .url()
+    .refine((url) => !url.endsWith("/"))
+    .optional(),
 });
 
 /**
