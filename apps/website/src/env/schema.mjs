@@ -42,6 +42,7 @@ export const serverSchema = z.object({
     .url()
     .refine((url) => !url.endsWith("/"))
     .optional(),
+  STATS_EMBED_URL: z.string().url().optional(),
 });
 
 /**

@@ -18,6 +18,10 @@ export const userRoles = {
     label: "Forms",
     description: "Can manage forms",
   },
+  stats: {
+    label: "Stats",
+    description: "Can view website stats",
+  },
 } as const satisfies Record<string, UserRoleConfig>;
 
 export function isValidUserRole(role: string) {
